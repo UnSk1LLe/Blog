@@ -1,4 +1,4 @@
-{{ define "modules/home/view/create-article" }}
+{{ define "modules/articles/html/show" }}
 
         {{ template "templates/layouts/html/head" .}}
 
@@ -52,41 +52,36 @@
                 <!-- Begin Top Meta -->
                 <div class="row post-top-meta">
                     <div class="col-md-2">
-                        <a href="#"><img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&amp;d=mm&amp;r=x" alt="Sal"></a>
+                        <a href="#"><img class="author-thumb" src="{{ .article.User.Image }}" alt="{{.article.User.Name}}"></a>
                     </div>
                     <div class="col-md-10">
-                        <a class="link-dark" href="#">Sal</a><a href="#" class="btn follow">Follow</a>
-                        <span class="author-description">Founder of WowThemes.net and creator of <b>"Mediumish"</b> theme that you're currently previewing. Developing professional premium themes, templates, plugins, scripts since 2012.</span>
-                        <span class="post-date">22 July 2017</span><span class="dot"></span><span class="post-read">6 min read</span>
+                        <a class="link-dark" href="#">{{.article.User.Name}}</a><a href="#" class="btn follow">Follow</a>
+                        <span class="author-description">{{.article.User.Name}} description<b>"Mediumish"</b> theme that you're currently previewing. Developing professional premium themes, templates, plugins, scripts since 2012.</span>
+                        <span class="post-date">{{.article.CreatedAt}}</span><span class="dot"></span><span class="post-read">6 min read</span>
                     </div>
                 </div>
                 <!-- End Top Menta -->
 
-                <h1 class="posttitle">18 Things You Should Learn Before Moving Into a New Home</h1>
+                <h1 class="posttitle">{{.article.Title}}</h1>
 
             </div>
 
             <!-- Begin Featured Image -->
-            <img class="featured-image img-fluid" src="assets/img/demopic/10.jpg" alt="">
+            <img class="featured-image img-fluid" src="{{.article.Image}}" alt="{{.article.Image}}">
             <!-- End Featured Image -->
 
             <!-- Begin Post Content -->
             <div class="article-post">
                 <p>
-                    Holy grail funding non-disclosure agreement advisor ramen bootstrapping ecosystem. Beta crowdfunding iteration assets business plan paradigm shift stealth mass market seed money rockstar niche market marketing buzz market.
-                </p>
+                    {{.article.Content}} </p>
                 <p>
-                    Burn rate release facebook termsheet equity technology. Interaction design rockstar network effects handshake creative startup direct mailing. Technology influencer direct mailing deployment return on investment seed round.
-                </p>
+                    {{.article.Content}}                </p>
                 <p>
-                    Termsheet business model canvas user experience churn rate low hanging fruit backing iteration buyer seed money. Virality release launch party channels validation learning curve paradigm shift hypotheses conversion. Stealth leverage freemium venture startup business-to-business accelerator market.
-                </p>
+                    {{.article.Content}}                </p>
                 <blockquote>
-                    Gen-z strategy long tail churn rate seed money channels user experience incubator startup partner network low hanging fruit direct mailing. Client backing success startup assets responsive web design burn rate A/B testing metrics first mover advantage conversion.
-                </blockquote>
+                    {{.article.Content}}                </blockquote>
                 <p>
-                    Freemium non-disclosure agreement lean startup bootstrapping holy grail ramen MVP iteration accelerator. Strategy market ramen leverage paradigm shift seed round entrepreneur crowdfunding social proof angel investor partner network virality.
-                </p>
+                    {{.article.Content}}                </p>
             </div>
             <!-- End Post Content -->
 
@@ -109,23 +104,6 @@
 <!-- End Article
 ================================================== -->
 
-<div class="hideshare"></div>
-
-<!-- Begin Footer
-================================================== -->
-<div class="container">
-    <div class="footer">
-        <p class="pull-left">
-            Copyright &copy; 2017 Your Website Name
-        </p>
-        <p class="pull-right">
-            Mediumish Theme by <a target="_blank" href="https://www.wowthemes.net">WowThemes.net</a>
-        </p>
-        <div class="clearfix">
-        </div>
-    </div>
-</div>
         {{ template "templates/layouts/html/footer" .}}
-
         {{ template "templates/layouts/html/foot" .}}
 {{ end }}
